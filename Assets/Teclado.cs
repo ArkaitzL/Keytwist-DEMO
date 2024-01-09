@@ -6,6 +6,8 @@ using BaboOnLite;
 
 public class Teclado : MonoBehaviour
 {
+    [SerializeField] int num_teclado;
+
     [Header("Animacion")]
     [SerializeField] AnimationCurve animacion;
     [SerializeField] float recorrido = 1, duracion = .25f;
@@ -72,7 +74,7 @@ public class Teclado : MonoBehaviour
             if (mantener.Some((mantenido) => mantenido == tecla.codigo && !tecla.estado))
             {
                 tecla.referencia.GetComponent<Renderer>().material = perdido;
-                Debug.Log("Pierde");
+                Controlador.instancia.Muerto(num_teclado);
             }
 
 

@@ -16,6 +16,7 @@ public class Teclado : MonoBehaviour
     [SerializeField] Material seleccionado;
     [SerializeField] Material mantenido;
     [SerializeField] Material perdido;
+    Material original;
 
     [Header("Teclas")]
     [SerializeField] public Tecla[] teclas;
@@ -28,6 +29,20 @@ public class Teclado : MonoBehaviour
         foreach (var tecla in teclas) 
         {
             tecla.posicion = tecla.referencia.localPosition;
+        }
+
+        //*cambiar en caso de que las teclas no tengan el mismo material
+        original = teclas[0].referencia.GetComponent<Renderer>().material;
+    }
+
+    public void Reiniciar() 
+    {
+        mantener = new();
+        pendiente = null;
+
+        foreach (var tecla in teclas)
+        {
+            tecla.referencia.GetComponent<Renderer>().material = original;
         }
     }
 
@@ -55,6 +70,8 @@ public class Teclado : MonoBehaviour
                 if (tecla.posicion != tecla.posicion.Y(+recorrido))
                     ControladorBG.Mover(tecla.referencia, new(duracion, tecla.posicion.Y(+recorrido), animacion));
             }
+
+            if (!Controlador.instancia.jugando) continue;
 
             //Añade tecla pendienta si hay
             if (pendiente != null && pendiente == tecla.codigo)

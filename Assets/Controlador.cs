@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Controlador : MonoBehaviour
 {
     [SerializeField] Teclado[] teclados;
-    [SerializeField] GameObject fin;
+    [SerializeField] GameObject finL, finR;
     [SerializeField] float tiempo_espera = 1.5f, tiempo_muerto = 3;
 
     [HideInInspector] public static Controlador instancia;
@@ -50,13 +50,8 @@ public class Controlador : MonoBehaviour
 
         //Morir
         ControladorBG.Rutina(tiempo_espera, () => {
-            fin.SetActive(true);
-
-            Transform ganador = fin.transform.Find("Ganador");
-            ganador.transform.localPosition = new(ganador.transform.localPosition.x * pos, ganador.transform.localPosition.y, ganador.transform.localPosition.z);
-
-            Transform perdedor = fin.transform.Find("Perdedor");
-            perdedor.transform.localPosition = new(perdedor.transform.localPosition.x * pos, perdedor.transform.localPosition.y, perdedor.transform.localPosition.z);
+            finL.SetActive((pos == 1) ? true : false);
+            finR.SetActive((pos == -1) ? true : false);
 
             foreach (var teclado in teclados)
             {
@@ -68,7 +63,8 @@ public class Controlador : MonoBehaviour
       
         //Reiniciar
         ControladorBG.Rutina(tiempo_muerto + tiempo_espera, () => {
-            fin.SetActive(false);
+            finL.SetActive(false);
+            finR.SetActive(false);
         });
     }
 }

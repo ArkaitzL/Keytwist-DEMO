@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edba11cb83e4bad4cb1cee24b875fa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  num_teclado: -1
+  num_teclado: 1
   animacion:
     serializedVersion: 2
     m_Curve:
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edba11cb83e4bad4cb1cee24b875fa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  num_teclado: 1
+  num_teclado: -1
   animacion:
     serializedVersion: 2
     m_Curve:
@@ -2238,6 +2238,9 @@ MonoBehaviour:
   - {fileID: 998395522}
   - {fileID: 486378275}
   fin: {fileID: 942760599}
+  tiempo_espera: 1.5
+  tiempo_muerto: 3
+  jugando: 0
 --- !u!1 &1415828819
 GameObject:
   m_ObjectHideFlags: 0

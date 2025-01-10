@@ -7,5 +7,5 @@ Ten en cuenta que algunos teclados tienen un límite en la cantidad de teclas qu
 
 ### Cómo Jugar
 Puedes jugar o descargar el juego desde el siguiente enlace:  
-👉 **[Keytwist en Itch.io]([https://baboon-games-studios.itch.io/temple-of-clouds](https://baboongamesoficial.itch.io/keytwist))**
+👉 **[Keytwist en Itch.io](https://baboongamesoficial.itch.io/temple-of-clouds)**
 
